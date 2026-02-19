@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>なぜujiujiを作ったのか｜背景・思い</title>
+
+  <meta name="description" content="言えない気持ちの置き場所がない。SNSでも日記でも救われなかった“ウジウジ”のために、返信のないやさしさを設計したアプリujiujiの背景と思い。">
+
+  <style>
+    :root{
+      --bg:#faf8f4;
+      --paper:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --accent:#0f7a8a;
+      --line:rgba(0,0,0,.08);
+      --shadow:0 20px 50px rgba(0,0,0,.06);
+      --radius:20px;
+      --max:760px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.9;
+      letter-spacing:.02em;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:60px 22px 80px;
+    }
+
+    h1{
+      font-size:clamp(26px,4vw,38px);
+      line-height:1.4;
+      margin:0 0 18px;
+      font-weight:700;
+    }
+
+    h2{
+      font-size:22px;
+      margin:42px 0 14px;
+      line-height:1.5;
+    }
+
+    h3{
+      font-size:18px;
+      margin:28px 0 8px;
+    }
+
+    p{margin:0 0 16px}
+
+    ul{
+      margin:12px 0 18px 1.2em;
+    }
+
+    li{margin:6px 0}
+
+    .lead{
+      font-size:17px;
+      color:#374151;
+    }
+
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:36px;
+      box-shadow:var(--shadow);
+    }
+
+    .note{
+      margin-top:20px;
+      padding:14px 16px;
+      background:rgba(15,122,138,.08);
+      border-left:4px solid var(--accent);
+      border-radius:12px;
+      font-size:14px;
+      color:#374151;
+    }
+
+    .quote{
+      margin:22px 0;
+      padding:18px 20px;
+      background:rgba(15,122,138,.06);
+      border-radius:14px;
+      font-style:italic;
+      color:#374151;
+    }
+
+    .cta{
+      margin-top:40px;
+      padding:26px;
+      background:linear-gradient(180deg,rgba(15,122,138,.12),rgba(255,255,255,.9));
+      border-radius:var(--radius);
+      border:1px solid rgba(15,122,138,.18);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      padding:12px 18px;
+      background:var(--accent);
+      color:#fff;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .btn:hover{opacity:.9}
+
+    footer{
+      margin-top:60px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <article class="card">
+
+      <h1>なぜujiujiを作ったのか。<br>「言えない気持ち」に、置き場所をつくりたかった。</h1>
+
+      <p class="lead">
+        ujiuji は、前向きな人のためのアプリではありません。<br>
+        むしろ、前向きになれない日を抱えた人が「そのままでいられる」ための場所です。
+      </p>
+
+      <p>
+        世の中には、相談できるサービスも、優しい人も、たくさんあります。
+        でもそれでも──<strong>言えない気持ち</strong>は、残ります。
+      </p>
+
+      <p>
+        その気持ちは、説明しようとすると形が変わってしまう。
+        うまく言葉にできず、気づけば「まあいいか」と飲み込んでしまう。
+        でも、飲み込んだ分だけ、心の奥に溜まっていく。
+      </p>
+
+      <div class="quote">
+        解決が欲しいわけじゃない。<br>
+        ただ、ここにあるって認めてほしい。
+      </div>
+
+      <h2>「SNS」と「日記」のあいだに、穴があった</h2>
+
+      <p>
+        書く場所が欲しくて、SNSを開く。<br>
+        でも、投稿ボタンの手前で止まる。
+      </p>
+
+      <ul>
+        <li>人に見られる前提だと、言葉が“整って”しまう</li>
+        <li>心配をかけそうで、結局書けない</li>
+        <li>反応が怖くて、投稿したあとに疲れる</li>
+      </ul>
+
+      <p>
+        じゃあ日記ならどうか。<br>
+        書ける。でも、誰にも届かない。静かすぎて、余計に孤独になることもある。
+      </p>
+
+      <p>
+        そのとき思いました。<br>
+        <strong>「SNSほど他者が近くなくていい。でも日記ほど孤独じゃない場所」</strong>が、必要なんじゃないか。
+      </p>
+
+      <h2>ujiujiが大事にしていること</h2>
+
+      <h3>1. 会話をしない、というやさしさ</h3>
+      <p>
+        やり取りがあると、気遣いが始まります。
+        返す言葉を探し、タイミングを考え、相手を想像し続ける。
+        それができる日もあるけれど、できない日もある。
+      </p>
+      <p>
+        ujiujiは、そこを最初から手放しました。<br>
+        <strong>返信がないことは、冷たさではなく「負担を増やさない」ための設計</strong>です。
+      </p>
+
+      <h3>2. 匿名であることは、弱さを守ること</h3>
+      <p>
+        気持ちって、正しさより先に「安全」が必要です。
+        誰に見られるか、どこまで特定されるかを気にしている限り、
+        本音は出てきません。
+      </p>
+      <p>
+        ujiujiは、あなたがあなたのままでいるために、匿名性を大切にします。
+      </p>
+
+      <h3>3. 定型文で届ける「小さなやさしさ」</h3>
+      <p>
+        誰かを励ましたいのに、言葉が出ないことがあります。
+        その沈黙は、無関心じゃない。
+        むしろ、真剣だから出てこない。
+      </p>
+      <p>
+        ujiujiは「押すだけで渡せる」応援を用意しました。<br>
+        <strong>軽く送れて、でも軽く扱わない。</strong>
+        そんな矛盾を、ちゃんと成立させたかった。
+      </p>
+
+      <div class="note">
+        ※ ujiuji は「議論で勝つ場所」ではなく、「気持ちを休ませる場所」を目指しています。<br>
+        正解探しより先に、まず呼吸ができること。その順番を守りたいと思っています。
+      </div>
+
+      <h2>目指しているのは、“前向き”よりも“回復”</h2>
+
+      <p>
+        世の中には「前向きになろう」というメッセージが溢れています。
+        それはきっと、善意です。
+        でも、前向きになれない日には、それが刺さってしまうことがある。
+      </p>
+
+      <p>
+        ujiujiが用意したいのは、前向きになるための場所というよりも、<br>
+        <strong>前向きになれない自分を、否定しなくていい場所</strong>です。
+      </p>
+
+      <div class="quote">
+        ウジウジしていい。<br>
+        そのままでも、生きてていい。
+      </div>
+
+      <h2>最後に</h2>
+
+      <p>
+        ujiujiは、完璧な答えを持っていません。<br>
+        ただ、ひとつだけ信じています。
+      </p>
+
+      <p>
+        <strong>気持ちは、整理されていなくても置いていい。</strong><br>
+        そして、誰かのやさしさは、言葉が少なくても届く。
+      </p>
+
+      <div class="cta">
+        <strong>もし今日、胸の奥に引っかかるものがあるなら。</strong><br>
+        まずは一行、置いてみてください。
+        <br>
+        <a class="btn" href="../index.html">ujiujiを見てみる</a>
+      </div>
+
+      <footer>
+        © ujiuji
+      </footer>
+
+    </article>
+  </main>
+</body>
+</html>
