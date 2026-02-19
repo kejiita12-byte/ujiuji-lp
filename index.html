@@ -2,388 +2,381 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SNSには残せない『ウジウジ』を、匿名でそっと吐き出せる場所。返信のない安心と、誰かのやさしさが届くアプリ。" />
-  <title>UjiUji - SNSに残せない「ウジウジ」を吐き出そう。</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="SNSには残せない『ウジウジ』を、匿名で吐き出せる。フォローも会話もないけど、誰かが読んでくれた感覚だけが残るアプリ。" />
+  <title>ujiuji｜SNSには残せない「ウジウジ」を吐き出そう。</title>
 
   <style>
     :root{
-      /* UjiUjiっぽい：やわらかいベージュ + 焦げ茶 */
-      --bg1:#f5f3ed;
-      --bg2:#e3ded6;
-      --bg3:#d1ccc4;
-
-      --text:#3d3833;
-      --muted: rgba(61,56,51,.72);
-      --border: rgba(61,56,51,.12);
-
-      --card: rgba(255,255,255,.62);
-      --shadow: 0 18px 40px rgba(0,0,0,.08);
-      --shadow2: 0 10px 24px rgba(0,0,0,.06);
-
+      /* ujiuji寄せ（必要ならここだけ調整） */
+      --bg: #0E5966;        /* 深い青緑 */
+      --bg2:#0B4A55;
+      --paper:#F6F3EE;      /* 温かい白 */
+      --ink:#111;
+      --muted:#666;
+      --line: rgba(0,0,0,.10);
+      --card: rgba(255,255,255,.78);
+      --shadow: 0 18px 60px rgba(0,0,0,.18);
       --radius: 22px;
-      --radius2: 16px;
-
       --max: 1040px;
     }
 
     *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-      background:
-        radial-gradient(900px 520px at 18% 10%, rgba(255,255,255,.65), rgba(255,255,255,0) 58%),
-        radial-gradient(760px 460px at 88% 18%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3));
-      min-height:100vh;
-    }
-
+    html,body{ margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); }
     a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 18px 70px; }
+    img{ max-width:100%; display:block; }
 
-    /* Top nav */
-    .nav{
+    /* ---------- hero ---------- */
+    .hero{
+      background: radial-gradient(1200px 600px at 30% 0%, rgba(255,255,255,.14), transparent 60%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: white;
+      padding: 56px 20px 0;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .container{ max-width: var(--max); margin:0 auto; }
+
+    .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding: 10px 0 26px;
+      gap: 12px; padding: 6px 0 18px;
+      opacity:.95;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.02em;
+      font-weight:700; letter-spacing:.2px;
     }
     .dot{
-      width:12px; height:12px; border-radius:999px;
-      background: rgba(61,56,51,.95);
-      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.9);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.12);
     }
-    .navlinks{
-      display:flex; gap:14px; align-items:center;
-      color:var(--muted);
-      font-size:14px;
+    .nav{
+      display:flex; gap:18px; font-size:14px; opacity:.9;
     }
-    .navlinks a{ padding:8px 10px; border-radius:999px; }
-    .navlinks a:hover{ background: rgba(255,255,255,.5); }
+    .nav a{ opacity:.9; }
+    .nav a:hover{ opacity:1; text-decoration:underline; }
 
-    /* Hero */
-    .hero{
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 26px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
       align-items:center;
-      padding: 22px 0 10px;
+      padding: 14px 0 46px;
     }
-
-    .kicker{
-      color:var(--muted);
-      font-weight:600;
-      letter-spacing:.06em;
-      font-size: 14px;
-      margin:0 0 10px;
-    }
-
     h1{
-      margin:0 0 12px;
-      font-size: clamp(34px, 4.6vw, 56px);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      font-size: clamp(28px, 4.2vw, 46px);
+      line-height:1.18;
+      margin: 0 0 14px;
+      letter-spacing: .2px;
     }
-
     .lead{
-      margin:0 0 18px;
-      color:var(--muted);
       font-size: 16px;
-      line-height: 1.85;
+      line-height:1.85;
+      margin: 0 0 22px;
+      opacity: .92;
     }
-
-    .ctaRow{
-      display:flex; flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-      margin: 18px 0 10px;
-    }
-
+    .ctaRow{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      gap: 10px;
-      padding: 12px 14px;
+      padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.62);
-      box-shadow: var(--shadow2);
-      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      color:#fff;
+      font-weight:600;
       font-size: 14px;
-      transition: transform .12s ease, background .12s ease;
-      min-width: 170px;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.78); }
-    .btn:active{ transform: translateY(0px); }
-
-    .btnPrimary{
-      background: rgba(61,56,51,.95);
-      color: rgba(245,243,237,.98);
-      border-color: rgba(61,56,51,.2);
+    .btn:hover{ background: rgba(255,255,255,.22); }
+    .btnSolid{
+      background: #fff; color:#0A3F48; border: 1px solid rgba(255,255,255,.35);
     }
-    .btnPrimary:hover{ background: rgba(61,56,51,.92); }
+    .btnSolid:hover{ filter: brightness(.96); }
 
-    .note{
-      margin:10px 0 0;
-      color: rgba(61,56,51,.62);
-      font-size: 12.5px;
-      line-height: 1.7;
+    .badges{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+    .badge{
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.18);
+      display:inline-flex; align-items:center; padding: 0 14px;
+      font-size: 13px; opacity: .95;
     }
 
-    /* Screenshot card */
+    .phoneWrap{
+      position:relative;
+      padding: 10px 0 0;
+    }
     .shotCard{
       border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid rgba(61,56,51,.10);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
       box-shadow: var(--shadow);
-      padding: 12px;
-    }
-    .shotFrame{
-      border-radius: calc(var(--radius) - 6px);
       overflow:hidden;
-      background: rgba(255,255,255,.35);
-      border: 1px solid rgba(61,56,51,.10);
     }
-    .shotFrame img{
-      display:block;
+    .shotCard img{
       width:100%;
       height:auto;
+      opacity: .98;
     }
-    .shotCaption{
-      padding: 10px 6px 2px;
-      color: rgba(61,56,51,.64);
-      font-size: 12.5px;
-      line-height: 1.7;
+    .shotNote{
+      font-size: 12px;
+      opacity: .78;
+      margin-top: 10px;
+      line-height: 1.6;
     }
 
-    /* Sections */
-    .section{
-      margin-top: 34px;
-      padding-top: 26px;
-      border-top: 1px solid rgba(61,56,51,.10);
+    /* ---------- below hero ---------- */
+    .below{
+      padding: 34px 20px 70px;
     }
-    .section h2{
-      margin:0 0 10px;
-      font-size: 22px;
-      letter-spacing: -.01em;
-    }
-    .grid{
+
+    .miniFeatures{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 14px;
+      margin-top: -28px;
     }
-    .card{
-      border-radius: var(--radius2);
-      background: rgba(255,255,255,.58);
-      border: 1px solid rgba(61,56,51,.10);
-      box-shadow: 0 10px 24px rgba(0,0,0,.05);
-      padding: 14px 14px 12px;
+    .mini{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.08);
     }
-    .card h3{
-      margin:0 0 6px;
-      font-size: 16px;
+    .mini .t{ font-weight:700; margin:0 0 6px; }
+    .mini .d{ margin:0; color: var(--muted); line-height:1.75; font-size: 14px; }
+
+    .sectionTitle{
+      margin: 46px 0 10px;
+      font-size: 18px;
+      letter-spacing:.2px;
     }
-    .card p{
-      margin:0;
+    .sectionLead{
+      margin: 0 0 18px;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
-    .split{
+    /* ---------- columns/articles ---------- */
+    .cols{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 16px;
       margin-top: 14px;
     }
-
-    .faq .q{
-      margin:0 0 6px;
-      font-weight:700;
-    }
-    .faq .a{
-      margin:0;
-      color:var(--muted);
-      line-height:1.85;
-    }
-
-    /* Footer */
-    footer{
-      margin-top: 38px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(61,56,51,.10);
-      color: rgba(61,56,51,.64);
-      font-size: 13px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px 16px;
+    .col{
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
       align-items:center;
-      justify-content:space-between;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 18px 48px rgba(0,0,0,.06);
     }
-    .footLinks{
-      display:flex; flex-wrap:wrap; gap: 10px 14px;
+    .thumb{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #f2f2f2;
+      aspect-ratio: 16/10;
     }
-    .footLinks a{
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.42);
-      border: 1px solid rgba(61,56,51,.10);
-    }
-    .footLinks a:hover{ background: rgba(255,255,255,.62); }
+    .thumb img{ width:100%; height:100%; object-fit:cover; }
 
-    /* Responsive */
+    .col h3{
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+    .col p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 14px;
+    }
+    .readmore{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight: 700;
+      color: #0B4A55;
+      font-size: 14px;
+    }
+    .readmore span{ opacity:.7; font-weight:600; }
+    .readmore:hover{ text-decoration:underline; }
+
+    /* ---------- footer ---------- */
+    footer{
+      padding: 22px 20px 46px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      background: #fff;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap: 14px; flex-wrap:wrap;
+      align-items:center;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .foot a{ color: #0B4A55; font-weight:600; }
+    .foot a:hover{ text-decoration:underline; }
+
+    /* ---------- responsive ---------- */
     @media (max-width: 920px){
-      .hero{ grid-template-columns: 1fr; }
-      .grid{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
-      .btn{ min-width: 160px; }
+      .heroGrid{ grid-template-columns: 1fr; }
+      .miniFeatures{ grid-template-columns: 1fr; margin-top: 0; }
+    }
+    @media (max-width: 680px){
+      .col{ grid-template-columns: 1fr; }
+      .thumb{ aspect-ratio: 16/9; }
+      .nav{ display:none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>UjiUji</span>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="dot"></div>
+          <div>ujiuji</div>
+        </div>
+
+        <nav class="nav">
+          <a href="#columns">コラム</a>
+          <a href="#support">サポート</a>
+          <a href="privacy.html">プライバシー</a>
+          <a href="terms.html">利用規約</a>
+        </nav>
       </div>
-      <div class="navlinks">
-        <a href="#features">特徴</a>
-        <a href="#how">使い方</a>
-        <a href="#faq">FAQ</a>
+
+      <div class="heroGrid">
+        <div>
+          <h1>SNSには残せない<br>「ウジウジ」を吐き出そう。</h1>
+          <p class="lead">
+            立場や世間体は忘れて、ありのままで思いを書ける。<br>
+            フォローも会話もないけど、「誰かが読んでくれた」感覚だけが残るアプリです。
+          </p>
+
+          <div class="ctaRow">
+            <!-- App Store公開後にURL差し替え -->
+            <a class="btn btnSolid" href="#" aria-label="App Store">App Storeで見る</a>
+            <a class="btn" href="#columns">どんなアプリ？</a>
+            <a class="btn" href="#support">お問い合わせ</a>
+          </div>
+
+          <div class="badges" aria-label="badges">
+            <div class="badge">匿名で投稿</div>
+            <div class="badge">返信なし（安心）</div>
+            <div class="badge">“読んだよ”が届く</div>
+          </div>
+        </div>
+
+        <div class="phoneWrap">
+          <div class="shotCard">
+            <!-- あなたのrepoの画像パス（assets/screenshot_home.jpg） -->
+            <img src="./assets/screenshot_home.jpg" alt="ujiuji アプリ画面スクリーンショット" />
+          </div>
+          <div class="shotNote">
+            ※スクリーンショットは開発中の画面です。表示は端末・OSにより異なる場合があります。
+          </div>
+        </div>
       </div>
     </div>
+  </header>
 
-    <main class="hero">
-      <div>
-        <p class="kicker">SNSに疲れたら。</p>
-        <h1>SNSには残せない<br>「ウジウジ」を吐き出そう。</h1>
-        <p class="lead">
-          誰にも言えない感情、葛藤、悩み。<br>
-          ここでは「反応」よりも「余韻」を大事にします。<br>
-          匿名で書いて、そっと置いていく。たまに、誰かのやさしさが届く。
+  <main class="below">
+    <div class="container">
+      <section class="miniFeatures" aria-label="features">
+        <div class="mini">
+          <p class="t">会話しないSNS</p>
+          <p class="d">返信や議論がないから、心が疲れにくい。</p>
+        </div>
+        <div class="mini">
+          <p class="t">“読んだよ”が届く</p>
+          <p class="d">誰かの優しさが、短い合図で返ってくる。</p>
+        </div>
+        <div class="mini">
+          <p class="t">書いたら、少し軽くなる</p>
+          <p class="d">吐き出すだけでいい日もある。残してもいい。</p>
+        </div>
+      </section>
+
+      <section id="columns" style="padding-top: 18px;">
+        <h2 class="sectionTitle">コラム</h2>
+        <p class="sectionLead">
+          ujiujiの“思想”や“使い方”を、短い読み物としてまとめていく場所。<br>
+          ここで特徴を説明すれば、上のファーストビューはスッキリ保てる。
         </p>
 
-        <div class="ctaRow">
-          <!-- ★ あとで App Store / Google Play のURLに差し替え -->
-          <a class="btn btnPrimary" href="#" onclick="alert('App Storeリンクは公開後に差し替え予定です'); return false;">
-            App Store（準備中）
+        <div class="cols">
+          <!-- 1 -->
+          <a class="col" href="articles/what-is-ujiuji.html">
+            <div class="thumb">
+              <img src="./assets/screenshot_home.jpg" alt="ujiujiのイメージ" />
+            </div>
+            <div>
+              <h3>SNSには残せない「ウジウジ」を吐き出せる場所</h3>
+              <p>「言ったら責められそう」「誰にも言えない」…そんな気持ちを、匿名で置いていくためのアプリです。</p>
+              <div class="readmore">読む <span>→</span></div>
+            </div>
           </a>
-          <a class="btn" href="#" onclick="alert('Google Playリンクは公開後に差し替え予定です'); return false;">
-            Google Play（準備中）
+
+          <!-- 2 -->
+          <a class="col" href="articles/no-reply-design.html">
+            <div class="thumb">
+              <img src="./assets/screenshot_home.jpg" alt="返信しない設計" />
+            </div>
+            <div>
+              <h3>返信がないのに、孤独じゃない理由</h3>
+              <p>フォローも会話もない。でも「誰かが読んでくれた」感覚が残るように、設計を工夫しています。</p>
+              <div class="readmore">読む <span>→</span></div>
+            </div>
           </a>
-          <a class="btn" href="#support">お問い合わせ</a>
-        </div>
 
-        <p class="note">
-          ※ 返信機能はありません（意図的に）。<br>
-          ※ 投稿は匿名で利用できます。個人情報は書かないでください。
-        </p>
-      </div>
+          <!-- 3 -->
+          <a class="col" href="articles/how-to-use.html">
+            <div class="thumb">
+              <img src="./assets/screenshot_home.jpg" alt="使い方" />
+            </div>
+            <div>
+              <h3>使い方：3分でできる心の整理</h3>
+              <p>書く → 置く → 読む。たったそれだけ。続けるコツや、しんどい日の使い方もまとめました。</p>
+              <div class="readmore">読む <span>→</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
 
-      <div class="shotCard">
-        <div class="shotFrame">
-          <img src="assets/screenshot_home.jpg" alt="UjiUji アプリ画面のスクリーンショット">
-        </div>
-        <div class="shotCaption">
-          「読む」「書く」「受け取る」を、静かに行き来できる設計。
-        </div>
-      </div>
-    </main>
-
-    <section id="features" class="section">
-      <h2>UjiUjiの特徴</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>会話をしない安心</h3>
-          <p>返信・議論・炎上の心配なし。書いた気持ちが「整理される」ための場所です。</p>
-        </div>
-        <div class="card">
-          <h3>匿名で、ありのままに</h3>
-          <p>プロフィールはペンネームだけ。立場や世間体をいったん置いて、素直に吐き出せます。</p>
-        </div>
-        <div class="card">
-          <h3>定型文で、やさしさが届く</h3>
-          <p>誰かの投稿に、短い“支え”を送れます。言葉に自信がなくても大丈夫。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="section">
-      <h2>使い方</h2>
-      <div class="split">
-        <div class="card">
-          <h3>1. 書く</h3>
-          <p>人には言えない感情を、メモのように書きます。個人情報は書かないでください。</p>
-        </div>
-        <div class="card">
-          <h3>2. 読む</h3>
-          <p>誰かの投稿を、静かに眺めます。返信ではなく、共感の“気配”が残る設計です。</p>
-        </div>
-        <div class="card">
-          <h3>3. そっと支える</h3>
-          <p>定型文から選んで、思いを送れます。相手の負担にならない距離感を大切にしています。</p>
-        </div>
-        <div class="card">
-          <h3>4. 受け取る</h3>
-          <p>あなたの投稿にも、たまに誰かのやさしさが届きます。受け取り、閉じて、また日常へ。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section faq">
-      <h2>FAQ</h2>
-      <div class="split">
-        <div class="card">
-          <p class="q">Q. 返信やDMはできますか？</p>
-          <p class="a">A. できません。やり取りを減らして、安心して吐き出せる場所にするためです。</p>
-        </div>
-        <div class="card">
-          <p class="q">Q. 実名は必要ですか？</p>
-          <p class="a">A. 不要です。ペンネームのみで利用できます。</p>
-        </div>
-        <div class="card">
-          <p class="q">Q. 投稿はどこまで公開されますか？</p>
-          <p class="a">A. アプリ内で閲覧され得ます。個人情報（氏名・住所・連絡先など）は書かないでください。</p>
-        </div>
-        <div class="card">
-          <p class="q">Q. 問い合わせはどこから？</p>
-          <p class="a">A. 下の「お問い合わせ」から送れます（GoogleフォームでもOK）。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="support" class="section">
-      <h2>お問い合わせ</h2>
-      <div class="card">
-        <p style="margin:0; color: var(--muted); line-height:1.9;">
-          ご意見・ご質問・不具合のご報告はこちらから。<br>
+      <section id="support" style="margin-top: 48px;">
+        <h2 class="sectionTitle">サポート</h2>
+        <p class="sectionLead">
+          ご意見・ご質問・不具合のご報告などがありましたら、こちらからお知らせください。<br>
           一つひとつ大切に読ませていただきます。
         </p>
-        <div class="ctaRow" style="margin-top:14px;">
-          <!-- ★ここをGoogleフォームURLに差し替え -->
-          <a class="btn btnPrimary" href="#" onclick="alert('GoogleフォームURLをここに貼ってください'); return false;">
-            フォームを開く
-          </a>
+
+        <!-- Google FormでもOK：ここにフォームURLを入れる -->
+        <div class="ctaRow">
+          <a class="btn btnSolid" href="#" target="_blank" rel="noopener">お問い合わせフォーム</a>
           <a class="btn" href="privacy.html">プライバシーポリシー</a>
           <a class="btn" href="terms.html">利用規約</a>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+  </main>
 
-    <footer>
-      <div>© <span id="y"></span> UjiUji</div>
-      <div class="footLinks">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="#support">Support</a>
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> ujiuji</div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="#support">サポート</a>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
