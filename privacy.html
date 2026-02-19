@@ -2,60 +2,109 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>プライバシーポリシー - UjiUji</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>プライバシーポリシー｜ujiuji</title>
   <style>
-    body{ margin:0; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; color:#3d3833;
-      background: linear-gradient(180deg,#f5f3ed,#e3ded6 45%,#d1ccc4); }
-    .wrap{ max-width:860px; margin:0 auto; padding:28px 18px 80px; }
-    a{ color:inherit; }
-    .card{ background: rgba(255,255,255,.62); border:1px solid rgba(61,56,51,.12); border-radius:18px; padding:16px; }
-    h1{ margin:0 0 14px; font-size:24px; }
-    h2{ margin:18px 0 8px; font-size:16px; }
-    p,li{ color: rgba(61,56,51,.78); line-height:1.9; font-size:14px; }
-    .top{ display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:14px; }
-    .btn{ display:inline-block; padding:10px 14px; border-radius:999px; background: rgba(255,255,255,.62); border:1px solid rgba(61,56,51,.12); text-decoration:none; }
+    :root{
+      --bg1:#f5f1ea; --bg2:#eee7dd; --bg3:#e6ded3;
+      --ink:#26231f; --sub:#5a544c;
+      --card:rgba(255,255,255,.62); --line:rgba(0,0,0,.08);
+      --accent:#d64a4a; --radius:22px; --shadow:0 18px 50px rgba(0,0,0,.08);
+      --max:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP";
+      background: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(214,74,74,.14)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.55);
+      text-decoration:none; font-weight:600; color:var(--sub);
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      padding:18px 18px 8px;
+    }
+    h1{margin:0 0 8px; font-size:26px; letter-spacing:-.2px}
+    .lead{margin:0 0 18px; color:var(--sub); line-height:1.8}
+    h2{margin:18px 0 8px; font-size:16px}
+    p, li{color:var(--sub); line-height:1.9; font-size:14px}
+    ul{margin:6px 0 12px 1.2em}
+    .foot{margin-top:16px; padding-top:12px; border-top:1px solid var(--line); color:var(--sub); font-size:12px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
-      <h1>プライバシーポリシー</h1>
-      <a class="btn" href="index.html">← 戻る</a>
+      <div class="brand"><span class="dot"></span><span>ujiuji</span></div>
+      <a class="btn" href="index.html">LPに戻る</a>
     </div>
 
     <div class="card">
-      <p>
-        UjiUji（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。
+      <h1>プライバシーポリシー</h1>
+      <p class="lead">
+        ujiuji（以下「本サービス」）は、ユーザーのプライバシーを尊重し、取得する情報の取り扱いについて以下のとおり定めます。
       </p>
 
       <h2>1. 取得する情報</h2>
       <ul>
-        <li>アカウント識別のための情報（例：認証ID 等）</li>
-        <li>アプリの利用状況（クラッシュ情報等、品質改善のために必要な範囲）</li>
-        <li>ユーザーが入力する投稿内容（※個人情報は投稿しないでください）</li>
+        <li>匿名認証に付随する識別子（例：FirebaseのUID）</li>
+        <li>ユーザーが任意に設定する表示名（ペンネーム）</li>
+        <li>ユーザーが投稿するテキスト、タグ等のコンテンツ</li>
+        <li>アプリの利用状況に関する情報（クラッシュ情報等、取得する場合）</li>
       </ul>
 
       <h2>2. 利用目的</h2>
       <ul>
-        <li>本アプリの提供、運用、保守</li>
-        <li>不具合対応や品質改善</li>
-        <li>お問い合わせ対応</li>
+        <li>本サービスの提供・維持・改善のため</li>
+        <li>不具合対応、問い合わせ対応のため</li>
+        <li>不正利用の防止および安全性の確保のため</li>
       </ul>
 
       <h2>3. 第三者提供</h2>
       <p>
-        法令に基づく場合を除き、本人の同意なく個人情報を第三者に提供しません。
+        本サービスは、法令に基づく場合を除き、ユーザー情報を第三者に提供しません。
       </p>
 
-      <h2>4. お問い合わせ</h2>
+      <h2>4. 外部サービスの利用</h2>
       <p>
-        本ポリシーに関するお問い合わせは、サポート窓口（フォーム）からご連絡ください。
+        本サービスは、以下の外部サービスを利用する場合があります。
+      </p>
+      <ul>
+        <li>Firebase（認証・データベース等）</li>
+      </ul>
+      <p>
+        外部サービス提供者による情報の取り扱いについては、各社のプライバシーポリシーをご確認ください。
       </p>
 
-      <p style="margin-top:18px; font-size:12.5px; color: rgba(61,56,51,.62);">
-        最終更新日：2026/02/xx
+      <h2>5. 保存期間・削除</h2>
+      <p>
+        ユーザーが投稿したコンテンツ等は、本サービスの運営上必要な範囲で保存されます。ユーザーが投稿の削除を希望する場合や、アカウント削除に関する問い合わせがある場合は、サポート窓口よりご連絡ください。
       </p>
+
+      <h2>6. セキュリティ</h2>
+      <p>
+        本サービスは、取得した情報の漏えい、滅失、毀損の防止その他安全管理のために合理的な措置を講じます。
+      </p>
+
+      <h2>7. 改定</h2>
+      <p>
+        本ポリシーは必要に応じて改定されることがあります。改定後の内容は、本サービス上での掲示等により周知します。
+      </p>
+
+      <div class="foot">最終更新日：2026/01/09</div>
     </div>
   </div>
 </body>
