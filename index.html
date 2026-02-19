@@ -8,10 +8,10 @@
 
   <style>
     :root {
-      --bg1: #f5f2ee;   /* 背景トップ */
-      --bg2: #e7e1da;   /* 背景ミドル */
-      --bg3: #d6cfc7;   /* 背景ボトム */
-      --text: #2b2430;  /* メイン文字色 */
+      --bg1: #f5f2ee;
+      --bg2: #e7e1da;
+      --bg3: #d6cfc7;
+      --text: #2b2430;
       --muted: rgba(43,36,48,.70);
       --border: rgba(43,36,48,.12);
       --card: rgba(255,255,255,.55);
@@ -30,7 +30,6 @@
     }
 
     a { color: inherit; text-decoration: none; transition: 0.2s; }
-    a:hover { text-underline-offset: 4px; }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
@@ -39,36 +38,31 @@
 
     /* ---------- Header ---------- */
     .header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      position: sticky; top: 0;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       background: rgba(245,242,238,.70);
       border-bottom: 1px solid var(--border);
       z-index: 100;
     }
     .header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
+      display: flex; align-items: center; justify-content: space-between; padding: 14px 0;
     }
     .brand { display: flex; align-items: center; gap: 10px; }
-    .brand__dot {
-      width: 10px; height: 10px; border-radius: 999px;
-      background: var(--text); opacity: .9;
-    }
+    .brand__dot { width: 10px; height: 10px; border-radius: 999px; background: var(--text); }
     .brand__name { font-weight: 700; letter-spacing: .2px; }
     .nav { display: flex; gap: 18px; font-size: 14px; color: var(--muted); }
     .nav a:hover { color: var(--text); text-decoration: underline; }
 
     /* ---------- Hero ---------- */
-    .hero { padding: 72px 0 60px; }
+    .hero { padding: 60px 0; }
     .hero__grid {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
       gap: 36px;
-      align-items: center;
+      align-items: flex-start; /* 上揃えに変更 */
+    }
+    .hero__content {
+      padding-top: 40px; /* 文字側の上の余白 */
     }
     .kicker { margin: 0 0 10px; color: var(--muted); font-size: 14px; font-weight: 600; }
     .hero__title {
@@ -89,54 +83,71 @@
       background: var(--text); color: #fff;
       box-shadow: 0 10px 30px rgba(43,36,48,.16);
     }
-    .btn--primary:hover { opacity: .9; }
     .btn--ghost { background: rgba(255,255,255,.4); }
-    .btn--ghost:hover { background: rgba(255,255,255,.6); }
 
-    .hero__visual .shot {
-      background: rgba(255,255,255,.35);
+    /* 画像エリアの調整 */
+    .hero__visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 75%にした画像を中央に置くため */
+    }
+    .hero__visual img {
+      width: 75%; /* サイズを75%に */
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      /* 枠線や背景を削除 */
+    }
+    .fineprint { margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+    /* ---------- Column (縦並び) ---------- */
+    .section { padding: 80px 0; border-top: 1px solid var(--border); }
+    .section--soft { background: rgba(255,255,255,0.1); }
+    .section__title { margin: 0 0 40px; font-size: 24px; text-align: center; }
+
+    .column-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px; /* 縦並びなので少し幅を絞ると読みやすい */
+      margin: 0 auto;
+    }
+    .column-item {
+      display: grid;
+      grid-template-columns: 180px 1fr; /* サムネイルと文章の比率 */
+      gap: 24px;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 12px;
+      padding: 20px;
+      align-items: center;
     }
-    .hero__visual img { width: 100%; border-radius: 12px; display: block; }
-    .fineprint { margin-top: 14px; font-size: 12px; color: var(--muted); text-align: center; }
-
-    /* ---------- Sections ---------- */
-    .section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .section--soft { background: rgba(255,255,255,.2); }
-    .section__title { margin: 0 0 32px; font-size: 24px; text-align: center; }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .column-item:hover { background: rgba(255,255,255,0.7); }
+    .column-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-radius: 10px;
     }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: transform 0.2s;
-    }
-    .card:hover { transform: translateY(-4px); }
-    .card h3 { margin: 0 0 12px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .card__link { display: block; margin-top: 16px; font-weight: 700; font-size: 14px; color: var(--text); }
+    .column-body h3 { margin: 0 0 8px; font-size: 18px; }
+    .column-body p { margin: 0; color: var(--muted); font-size: 14px; }
+    .column-more { display: block; margin-top: 12px; font-weight: 700; font-size: 13px; }
 
     /* ---------- Footer ---------- */
-    .footer { padding: 40px 0; border-top: 1px solid var(--border); background: rgba(245,242,238,.5); }
+    .footer { padding: 40px 0; border-top: 1px solid var(--border); }
     .footer__inner {
       display: flex; justify-content: space-between; align-items: center;
       gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted);
     }
-    .footer__nav { display: flex; gap: 16px; }
-    .footer__nav a:hover { text-decoration: underline; }
 
     /* Responsive */
-    @media (max-width: 850px) {
+    @media (max-width: 768px) {
       .hero__grid { grid-template-columns: 1fr; text-align: center; }
+      .hero__content { padding-top: 0; }
       .cta { justify-content: center; }
-      .nav { display: none; } /* スマホでは簡易化 */
+      .column-item { grid-template-columns: 1fr; text-align: center; }
+      .column-thumb { width: 60%; margin: 0 auto; }
+      .nav { display: none; }
     }
   </style>
 </head>
@@ -150,9 +161,8 @@
           <div class="brand__name">ujiuji</div>
         </div>
         <nav class="nav">
-          <a href="#about">コラム</a>
+          <a href="#columns">コラム</a>
           <a href="#support">サポート</a>
-          <a href="#">プライバシー</a>
         </nav>
       </div>
     </div>
@@ -171,38 +181,49 @@
             </p>
             <div class="cta">
               <a href="#" class="btn btn--primary">App Storeで見る</a>
-              <a href="#about" class="btn btn--ghost">どんなアプリ？</a>
+              <a href="#columns" class="btn btn--ghost">どんなアプリ？</a>
             </div>
           </div>
           <div class="hero__visual">
-            <div class="shot">
-              <img src="./assets/screenshot_home.png" alt="ujiuji アプリ画面" />
-            </div>
+            <img src="./assets/screenshot_home.png" alt="ujiuji アプリ画面" />
             <p class="fineprint">※画面は開発中のものです</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section section--soft">
+    <section id="columns" class="section section--soft">
       <div class="container">
-        <h2 class="section__title">ujiujiの楽しみかた</h2>
-        <div class="cards">
-          <a href="#" class="card">
-            <h3>匿名で、独り言。</h3>
-            <p>誰だかわからないから、カッコ悪い本音もそのまま。あなたの言葉をそのまま受け止める場所です。</p>
-            <span class="card__link">詳しく読む →</span>
+        <h2 class="section__title">ujiujiのコラム</h2>
+        <div class="column-list">
+          
+          <a href="articles/what-is-ujiuji.html" class="column-item">
+            <img src="./assets/screenshot_home.png" class="column-thumb" alt="コラム1">
+            <div class="column-body">
+              <h3>匿名で、独り言。</h3>
+              <p>誰だかわからないから、カッコ悪い本音もそのまま。あなたの言葉をそのまま受け止める場所です。</p>
+              <span class="column-more">読む →</span>
+            </div>
           </a>
-          <a href="#" class="card">
-            <h3>返信なし。でも孤独じゃない。</h3>
-            <p>あえて返信機能をなくしました。でも「読んだよ」という温かいサインだけは届きます。</p>
-            <span class="card__link">詳しく読む →</span>
+
+          <a href="articles/no-reply-design.html" class="column-item">
+            <img src="./assets/screenshot_home.png" class="column-thumb" alt="コラム2">
+            <div class="column-body">
+              <h3>返信なし。でも孤独じゃない。</h3>
+              <p>あえて返信機能をなくしました。でも「読んだよ」という温かいサインだけは届きます。</p>
+              <span class="column-more">読む →</span>
+            </div>
           </a>
-          <a href="#" class="card">
-            <h3>3分でできる心の整理。</h3>
-            <p>モヤモヤしたら書いて、流す。たったそれだけで、明日が少しだけ軽くなるかもしれません。</p>
-            <span class="card__link">詳しく読む →</span>
+
+          <a href="articles/how-to-use.html" class="column-item">
+            <img src="./assets/screenshot_home.png" class="column-thumb" alt="コラム3">
+            <div class="column-body">
+              <h3>3分でできる心の整理。</h3>
+              <p>モヤモヤしたら書いて、流す。たったそれだけで、明日が少しだけ軽くなるかもしれません。</p>
+              <span class="column-more">読む →</span>
+            </div>
           </a>
+
         </div>
       </div>
     </section>
@@ -210,9 +231,7 @@
     <section id="support" class="section">
       <div class="container" style="text-align: center;">
         <h2 class="section__title">サポート</h2>
-        <p style="color: var(--muted); margin-bottom: 30px;">
-          ご意見、不具合の報告などは、下記フォームよりお寄せください。
-        </p>
+        <p style="color: var(--muted); margin-bottom: 30px;">ご意見、不具合の報告などは、下記フォームよりお寄せください。</p>
         <div class="cta" style="justify-content: center;">
           <a href="#" class="btn btn--ghost">お問い合わせフォーム</a>
         </div>
@@ -224,11 +243,10 @@
     <div class="container">
       <div class="footer__inner">
         <div>© <span id="year"></span> ujiuji</div>
-        <nav class="footer__nav">
+        <div style="display: flex; gap: 16px;">
           <a href="#">プライバシーポリシー</a>
           <a href="#">利用規約</a>
-          <a href="#support">サポート</a>
-        </nav>
+        </div>
       </div>
     </div>
   </footer>
