@@ -1,1 +1,280 @@
 
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ujiji | SNSには残せない本音を、そっと。</title>
+  <meta name="description" content="ujijiは、返信のない匿名空間。SNSには残せない気持ちを、そっと吐き出せます。" />
+
+  <!-- OGP（SNSで共有されたとき） -->
+  <meta property="og:title" content="ujiji | SNSには残せない本音を、そっと。" />
+  <meta property="og:description" content="返信はないけど、『誰かが読んでくれた』が届く。共感だけが流れる匿名空間。" />
+  <meta property="og:type" content="website" />
+  <!-- 画像を用意できたら差し替え（1200x630推奨） -->
+  <!-- <meta property="og:image" content="https://example.com/ogp.png" /> -->
+
+  <style>
+    :root{
+      --bg1:#f3eee7;
+      --bg2:#ece4da;
+      --ink:#2c2622;
+      --muted:rgba(44,38,34,.68);
+      --card:rgba(255,255,255,.55);
+      --stroke:rgba(44,38,34,.10);
+      --shadow:0 18px 60px rgba(0,0,0,.08);
+      --radius:24px;
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 10% 0%, var(--bg1), transparent 65%),
+                  radial-gradient(900px 700px at 90% 10%, var(--bg2), transparent 60%),
+                  linear-gradient(180deg, #f6f2ec 0%, #f0e8de 100%);
+      letter-spacing:.01em;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 72px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0 18px}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: rgba(255,255,255,.55);
+      border:1px solid var(--stroke);
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+      display:grid; place-items:center;
+      font-weight:700;
+    }
+    .brand span{font-weight:700; letter-spacing:.02em}
+    nav{display:flex; gap:14px; font-size:14px; color:var(--muted)}
+    nav a{opacity:.9; text-decoration:none}
+    nav a:hover{opacity:1; text-decoration:underline}
+
+    .hero{
+      margin-top:18px;
+      padding:46px 26px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .kicker{font-size:14px; color:var(--muted); margin:0 0 10px}
+    h1{
+      margin:0 0 14px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height:1.06;
+      letter-spacing:.02em;
+    }
+    .lead{
+      margin:0 0 22px;
+      font-size: clamp(15px, 1.6vw, 18px);
+      color:var(--muted);
+      line-height:1.8;
+      max-width: 60ch;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(44,38,34,.92);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.55);
+      color: var(--ink);
+      box-shadow:none;
+    }
+    .hint{font-size:13px; color:var(--muted)}
+
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      padding:22px 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.50);
+      border:1px solid var(--stroke);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.75; font-size:14px}
+    .card ul{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.9; font-size:14px}
+
+    .shots{
+      margin-top:14px;
+      padding:18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.45);
+      border:1px solid var(--stroke);
+    }
+    .shotsHead{display:flex; justify-content:space-between; align-items:flex-end; gap:10px; padding:8px 8px 16px}
+    .shotsHead h2{margin:0; font-size:18px}
+    .shotsHead p{margin:0; color:var(--muted); font-size:13px}
+
+    .shotGrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      padding:8px;
+    }
+    .shot{
+      border-radius: 18px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
+      aspect-ratio: 9/19.5;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      color: rgba(44,38,34,.35);
+      font-size: 13px;
+    }
+    .shot img{width:100%; height:100%; object-fit:cover; display:block}
+
+    .footer{
+      margin-top:18px;
+      padding:18px 6px;
+      display:flex; flex-wrap:wrap;
+      align-items:center; justify-content:space-between;
+      gap:10px;
+      color:var(--muted);
+      font-size: 13px;
+    }
+    .footer a{color:var(--muted); text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 840px){
+      .card{grid-column: span 12}
+      .shotGrid{grid-template-columns: repeat(2, 1fr)}
+      nav{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="ujiji">
+        <div class="logo">u</div>
+        <span>ujiji</span>
+      </a>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#shots">スクショ</a>
+        <a href="#support">サポート</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <p class="kicker">匿名・返信なし・やさしい空間</p>
+      <h1>SNSには残せない本音を、<br>そっと吐き出そう。</h1>
+      <p class="lead">
+        ujijiは、返信のない匿名空間です。<br>
+        立場や世間体を忘れて、ありのままの気持ちを書けます。<br>
+        そして「誰かが読んでくれた」感が、静かに届きます。
+      </p>
+
+      <div class="ctaRow">
+        <!-- App Store URLが発行されたら差し替え -->
+        <a class="btn" href="#" target="_blank" rel="noopener">App Storeで見る</a>
+        <a class="btn secondary" href="#shots">スクショを見る</a>
+        <span class="hint">※公開前なら TestFlight のリンクでもOK</span>
+      </div>
+    </main>
+
+    <section id="features" class="grid" aria-label="features">
+      <div class="card">
+        <h3>フォローも会話もないけど、安心できる</h3>
+        <p>
+          返信がない設計だから、言葉の応酬に疲れません。<br>
+          ただ、どこかの誰かに届いています。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>「定型文選択式」で、やさしく気持ちが届く</h3>
+        <p>
+          共感は、短い言葉で。<br>
+          「読んだよ」「わかる」みたいな温度が、そっと残ります。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>立場や世間体は忘れていい</h3>
+        <p>
+          ペンネームだけでOK。<br>
+          何者でもない誰かとして、素直に吐き出せます。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>こんな人へ</h3>
+        <ul>
+          <li>SNSに書くほどじゃないけど、心の中がいっぱい</li>
+          <li>誰かに言うのが怖い、でも誰かに知ってほしい</li>
+          <li>ただ「読まれた」だけで救われる夜がある</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="shots" class="shots" aria-label="screenshots">
+      <div class="shotsHead">
+        <h2>プレビュー</h2>
+        <p>画像はApp Storeのスクショと同じでもOK</p>
+      </div>
+
+      <div class="shotGrid">
+        <!-- ここに画像を置く：assets/s1.jpg など -->
+        <div class="shot">スクショ1</div>
+        <div class="shot">スクショ2</div>
+        <div class="shot">スクショ3</div>
+        <div class="shot">スクショ4</div>
+      </div>
+    </section>
+
+    <section id="support" class="grid" aria-label="support">
+      <div class="card" style="grid-column: span 12;">
+        <h3>サポート</h3>
+        <p>
+          ご意見・ご質問・不具合のご報告などがありましたら、こちらからお知らせください。<br>
+          一つひとつ大切に読ませていただきます。
+        </p>
+        <div class="ctaRow" style="margin-top:14px;">
+          <!-- Google FormでもOK（後述） -->
+          <a class="btn secondary" href="#" target="_blank" rel="noopener">お問い合わせフォーム</a>
+          <span class="hint">※返信先メールアドレスをフォームで受け取ると便利</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> ujiji</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <!-- 公開用に後から差し替え -->
+        <a href="#" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="#" target="_blank" rel="noopener">利用規約</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
